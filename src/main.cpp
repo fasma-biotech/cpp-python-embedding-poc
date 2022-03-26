@@ -13,6 +13,13 @@ main(int argc, char *argv[])
     Py_Initialize();
     PyRun_SimpleString("from time import time,ctime\n"
                        "print('Today is', ctime(time()))\n");
+
+    PyObject *obj = Py_BuildValue("s", "src/python/main.py");
+    FILE *file = _Py_fopen_obj(obj, "r+");
+    if(file != NULL) {
+        PyRun_SimpleFile(file, "src/python/main.py");
+    }
+
     if (Py_FinalizeEx() < 0) {
         exit(120);
     }
