@@ -6,14 +6,15 @@
     {
       "type": "shell",
       "label": "clang++ build active file",
-      "command": "/usr/bin/clang++",
+      "command": "/usr/bin/g++",
       "args": [
         "-std=c++17",
         "-stdlib=libc++",
         "-g",
-        "`/Users/samuelbriole/.pyenv/shims/python3.9-config",
+        "-lpython3.9",
+        "`~/.pyenv/shims/python3.9-config",
         "--cflags`",
-        "`/Users/samuelbriole/.pyenv/shims/python3.9-config",
+        "`~/.pyenv/shims/python3.9-config",
         "--ldflags`",
         "${file}",
         "-o",
